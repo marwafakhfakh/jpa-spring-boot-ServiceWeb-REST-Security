@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
+	  layout:decorate="~{layout}">
+<head>
+<meta charset="utf-8"/>
+<title>Fiche Produit</title>
+<link rel= "stylesheet"
+      type ="text/css"  
+      href= "../static/css/bootstrap.min.css"
+      th:href="@{/css/bootstrap.min.css}"
+      />
+      
+  <link rel= "stylesheet"
+  type ="text/css"  
+  href= "../static/css/mon_style.css"
+  th:href="@{/css/mon_style.css}"
+  />
+</head>
+<body>
+	<div layout:fragment="content">
+<div class="col-md-6 col-sm-6 col-xs-12 spacer col-md-offset-3" >
+	<div class="panel panel-default">
+		<div class ="panel-heading">Saisie d'un produit  </div>
+		<div class= "panel-body">
+			<form th:action="@{update}" method="post" th:object ="${produit}">
+			
+			<div class="form-group">
+			   <label class="control-label">ID</label>
+			   <input class="form-control" type="text" 
+			          th:field="*{id}"/>       
+			</div>
+			
+			
+			<div class="form-group">
+			   <label class="control-label">Désignation</label>
+			   <input class="form-control" type="text" 
+			          th:field="*{designation}"/>
+			          <span class ="red" th:errors ="*{designation}"></span>
+			</div>
+			<div class="form-group">
+			   <label class="control-label">Prix</label>
+			   <input class="form-control" type="text"  
+			           th:field="*{prix}"/>
+			   <span class ="red" th:errors ="*{prix}"></span>
+			</div>
+			<div class="form-group">
+			   <label class="control-label">Quantité</label>
+			   <input class="form-control" type="text" 
+			           th:field="*{quantite}"/>
+			    <span class ="red" th:errors ="*{quantite}"></span>
+			          
+			</div>
+			
+			<div class="form-group">
+			   <label class="control-label">Date Achat</label>
+			   <input class="form-control" type="date" 
+			          th:field="*{dateAchat}"/>
+			  <span class ="red" th:errors ="*{dateAchat}"></span>
+			</div>
+			<div class="form-group">
+				<label class="control-label">Catégorie</label> 
+				<select class="form-control" 
+					th:field="*{categorie}">
+					<option th:each="c:${categories}" th:value="${c.id}"
+						th:text="${c.libelle}" />
+				</select> 
+				<span class="red" th:errors="*{categorie}"></span>
+			  </div>
+			  <div class="form-group">
+							<label class="control-label">Actif</label>
+							<input type="checkbox" th:field="*{actif}" th:checked="*{actif}" />
+
+							<span class="red" th:errors="*{categorie}"></span>
+						</div>
+
+			  
+			<div >
+			   
+			   <button class="btn btn-primary" type="submit"  >Enregistrer</button>
+			         
+			</div>			
+			</form>
+		</div>
+		<div class="panel-footer"> ----Gestion de stock---		</div>		
+	</div>
+</div>
+</div>
+</body>
+</html>

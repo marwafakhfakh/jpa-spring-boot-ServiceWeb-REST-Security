@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+layout:decorate="~{layout}">
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Page d'accueil</title>
+<link rel="stylesheet" type="text/css"
+href="/css/bootstrap.min.css"
+th:href="@{../static/css/bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css"
+href="/css/mon_style.css"
+th:href="@{../static/css/mon_style.css}" />
+</head>
+<body>
+<div layout:fragment="content">
+<div class=" spacer ">
+<div class="panel panel-info">
+<div class="panel-body">
+<table class="table table-striped">
+<tr>
+<td><a
+
+href="/produits/getInfosUser"> Infos (JSON)</a></td>
+<td><a href="/produits/">
+liste des produits (XML)</a></td>
+
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
